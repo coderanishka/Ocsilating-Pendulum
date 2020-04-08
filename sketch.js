@@ -10,7 +10,7 @@ var dolphine;
 
 
 function setup(){
-createCanvas(400,400);
+createCanvas(500,500);
 engine = Engine.create();
 world = engine.world;
 
@@ -21,7 +21,7 @@ var ball_options ={
    restitution: 1.0     
 }
 
-stick = Bodies.rectangle(200,70,300,30,stick_options);
+stick = Bodies.rectangle(250,70,300,30,stick_options);
 //stick.shapeColor=("blue");
 World.add(world,stick);
 
@@ -31,10 +31,6 @@ World.add(world,ball);
 
 attach = new C(stick,ball);
 
-if(keyDown("SPACE")){
-    mouseX = ball.x;
-    mouseY = ball.y;
-}
 }
 
 function draw(){
@@ -51,6 +47,15 @@ function draw(){
  ellipseMode(RADIUS);
  ellipse(ball.position.x,ball.position.y,40,40);
 
+ textSize(15);
+ fill(255);
+ text("Press 'space' key to hold the Pendulum",120,20);
+ text("Press 'Enter' to let the Pendulum oscillate",110,40);
+   
+ if(keyCode===32){
+    ball.position.y = mouseY;
+    ball.position.x = mouseX;
+    }
  
 drawSprites();
 }
