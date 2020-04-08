@@ -6,7 +6,7 @@ const Constraint = Matter.Constraint;
 var engine,world;
 var ball,stick;
 var attach;
-var dolphine;
+
 
 
 function setup(){
@@ -22,11 +22,9 @@ var ball_options ={
 }
 
 stick = Bodies.rectangle(250,70,300,30,stick_options);
-//stick.shapeColor=("blue");
 World.add(world,stick);
 
 ball = Bodies.circle(80,200,20,ball_options);
-//ball.setCollider("circle",0,0,40);
 World.add(world,ball);
 
 attach = new C(stick,ball);
